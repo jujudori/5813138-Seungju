@@ -134,7 +134,7 @@ int GetNumberOfNodes(TreeNode* root) {
 
 	return count;
 }
-GetHeightOfTree(TreeNode* root) {
+int GetHeightOfTree(TreeNode* root) {
 
 	if (root == NULL) return 0;
 
@@ -165,7 +165,7 @@ GetHeightOfTree(TreeNode* root) {
 }
 
 
-GetNumberOfLeafNodes(TreeNode* root) {
+int GetNumberOfLeafNodes(TreeNode* root) {
 	if (root == NULL) return 0;
 
 	int count = 0;
