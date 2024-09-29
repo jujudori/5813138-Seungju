@@ -92,7 +92,7 @@ void GenerateLinkTree(TreeNode* root) {
 	PlaceNode(root->right->right, 1, 15);
 }
 
-int GetSumOfNodes(TreeNode* root) {
+void GetSumOfNodes(TreeNode* root) {
 	if (root == NULL) return 0;
 
 	int sumnode = 0;
@@ -110,11 +110,11 @@ int GetSumOfNodes(TreeNode* root) {
 		current = current->right;
 	}
 
-	return sumnode;
+	printf("Sum of nodes : %d\n", sumnode);
 }
 
 
-int GetNumberOfNodes(TreeNode* root) {
+void GetNumberOfNodes(TreeNode* root) {
 	if (root == NULL) return 0;
 
 	int count = 0;
@@ -132,9 +132,10 @@ int GetNumberOfNodes(TreeNode* root) {
 		current = current->right;
 	}
 
-	return count;
+
+	printf("Number of nodes : %d\n", count);
 }
-int GetHeightOfTree(TreeNode* root) {
+void GetHeightOfTree(TreeNode* root) {
 
 	if (root == NULL) return 0;
 
@@ -161,11 +162,12 @@ int GetHeightOfTree(TreeNode* root) {
 		height++;
 	}
 
-	return height;
+
+	printf("Height of Tree : %d\n", height);
 }
 
 
-int GetNumberOfLeafNodes(TreeNode* root) {
+void GetNumberOfLeafNodes(TreeNode* root) {
 	if (root == NULL) return 0;
 
 	int count = 0;
@@ -182,7 +184,8 @@ int GetNumberOfLeafNodes(TreeNode* root) {
 		if (current->left) push(&s, current->left);
 	}
 
-	return count;
+
+	printf("Number of leaf nodes : %d",count );
 }
 
 
@@ -194,10 +197,10 @@ int main() {
 
 	GenerateLinkTree(root);
 
-	printf("Sum of nodes : %d\n", GetSumOfNodes(root));
-	printf("Number of nodes : %d\n", GetNumberOfNodes(root));
-	printf("Height of Tree : %d\n", GetHeightOfTree(root));
-	printf("Number of leaf nodes : %d", GetNumberOfLeafNodes(root));
+	GetSumOfNodes(root);
+	GetNumberOfNodes(root);
+	GetHeightOfTree(root);
+	GetNumberOfLeafNodes(root);
 
 	free(root);
 
