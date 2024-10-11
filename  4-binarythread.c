@@ -15,7 +15,7 @@ typedef struct ThreadNode {
     int isThread;
 } ThreadNode;
 
-typedef struct ThreadNode ThreadTree;
+ThreadNode* prev;
 
 TreeNode* new_node(int key) {
     TreeNode* temp = (TreeNode*)malloc(sizeof(TreeNode));
@@ -59,62 +59,62 @@ ThreadNode* newThreadNode(int key) {
     return temp;
 }
 
-void madeThreads(TreeNode* root, ThreadNode** prev, ThreadNode** troot) {
-    if (root == NULL) return;
+ThreadNode* insert_Thread_node(ThreadNode* root, int key) {
+    if (root == NULL)
+        return newThreadNode(key);
+
+    if (root->data == key) return root;
+    else if (root->data > key) root->left = insert_Thread_node(root->left, key);
+    else root->right = insert_Thread_node(root->right, key);
 
 
-    madeThreads(root->left, prev, troot);
-
-
-    ThreadNode* current = newThreadNode(root->data);
-    if (*troot == NULL) {
-        *troot = current
-    }
-
-
-    if (*prev != NULL) {
-        if ((*prev)->right == NULL) {
-            (*prev)->right = current;
-            (*prev)->isThread = TRUE;
-        }
-    }
-
-    *prev = current;
-
-
-    madeThreads(root->right, prev, troot);
-}
-
-ThreadNode* GenerateThreadTree(TreeNode* root) {
-    ThreadNode* root = NULL;
-    ThreadNode* prev = NULL;
-    madeThreads(root, &prev, &root);
     return root;
 }
 
-ThreadNode* find_successor(ThreadNode* p) {
-    if (p->isThread) {
-        return p->right;
+ThreadNode* createThread(ThreadNode* root) {
+    if (root != NULL) {
+        createThread(root->left);
+
+        if (prev != NULL && prev->right == NULL) {
+            prev->right = root;
+            prev->isThread = TRUE;
+        }
+        prev = root;
+
+        createThread(root->right);
+    }
+}
+ThreadNode* GenerateThreadTree(int inputData[], int size) {
+    ThreadNode* troot = NULL;
+    for (int i = 0; i < size; i++) {
+        troot = insert_Thread_node(troot, inputData[i]);
+
     }
 
-    p = p->right;
-    while (p != NULL && p->left != NULL) {
-        p = p->left;
-    }
-    return p;
+    prev = NULL;
+    createThread(troot);
+    return troot;
+}
+
+
+
+ThreadNode* find_successor(ThreadNode* p) {
+
+    ThreadNode* q = p->right;
+    if (q == NULL || p->isThread == TRUE) return q;
+    while (q->left != NULL) q = q->left;
+    return q;
 }
 
 void ThreadTreeInOrder(ThreadNode* t) {
-    if (t == NULL) return 0;
-
-
-    while (t->left) {
-        t = t->left;
-    }
+    ThreadNode* q;
+    q = t;
+    while (q->left != NULL) q = q->left;
     do {
-        printf("%2d", t->data);
-        t = find_successor(t);
-    } while (t);
+        printf("%2d ", q->data);
+        q = find_successor(q);
+
+    } while (q);
 }
 
 void freetree(TreeNode* root) {
@@ -142,7 +142,7 @@ int main() {
     BinaryTreeInOrder(root);
     printf("\n");
 
-    ThreadTree* troot = GenerateThreadTree(root);
+    ThreadNode* troot = GenerateThreadTree(inputData, size);
     printf("Thread tree inorder: ");
     ThreadTreeInOrder(troot);
     printf("\n");
