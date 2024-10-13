@@ -60,9 +60,9 @@ int insert_heap(HeapType* h, element item, int display_true) {
         if (display_true && i != 1 && item.key > h->heap[i / 2].key) {
             h->heap[i / 2] = item;
             display(h);  
-            //generateheapÆ®¸® »ı¼º½Ã¿¡µµ Ãâ·ÂÀÌ µÊÀ» ¹æÁöÇÏ±â À§ÇÏ¿© ¸Å°³º¯¼ö Ãß°¡ÇÏ¿© trueÀÏ½Ã Ãâ·ÂÇÒ¼öÀÖ´Â°ÍÀ¸·Î ¸¸µé¾úÀ½
-            //¶ÇÇÑ heap[i/2]°ªÀÌ [i]¿¡ ÀúÀåµÇ¸é, [i]ÀÇ º» °ªÀÌ ³¯¶ó°¡ Áßº¹À¸·Î Ãâ·ÂµÇ±â¶§¹®¿¡ itemº¯¼ö¿¡ ¹Ì¸® ÀúÀåÇØµÎ¾î
-            //Ãâ·ÂÇÏ´Â °ÍÀ¸·Î Á¶°Ç¹® Ãß°¡ÇßÀ½.
+            //generateheapíŠ¸ë¦¬ ìƒì„±ì‹œì—ë„ ì¶œë ¥ì´ ë¨ì„ ë°©ì§€í•˜ê¸° ìœ„í•˜ì—¬ ë§¤ê°œë³€ìˆ˜ ì¶”ê°€í•˜ì—¬ trueì¼ì‹œ ì¶œë ¥í• ìˆ˜ìˆëŠ”ê²ƒìœ¼ë¡œ ë§Œë“¤ì—ˆìŒ
+            //ë˜í•œ heap[i/2]ê°’ì´ [i]ì— ì €ì¥ë˜ë©´, [i]ì˜ ë³¸ ê°’ì´ ë‚ ë¼ê°€ ì¤‘ë³µìœ¼ë¡œ ì¶œë ¥ë˜ê¸°ë•Œë¬¸ì— itemë³€ìˆ˜ì— ë¯¸ë¦¬ ì €ì¥í•´ë‘ì–´
+            //ì¶œë ¥í•˜ëŠ” ê²ƒìœ¼ë¡œ ì¡°ê±´ë¬¸ ì¶”ê°€í–ˆìŒ.
         }
 
         count++;
@@ -84,7 +84,7 @@ element delete_heap(HeapType* h) {
     int count = 1;
 
     h->heap[parent] = temp;
-
+     display(h);
     while (child <= h->heap_size) {
         if (child < h->heap_size && h->heap[child].key < h->heap[child + 1].key) {
             child++;
@@ -92,12 +92,12 @@ element delete_heap(HeapType* h) {
         if (temp.key >= h->heap[child].key) break;
        
         element prev = h->heap[parent]; 
-        //child ³»¿ëÀÌ parent¿¡ ÀúÀåµÇ¾î parent³»¿ëÀÌ ³¯¾Æ°¡±â¶§¹®¿¡  ÀúÀåÇØµÎ´Â°Ô ÁÁ°Ú´Ù »ı°¢ÇØ¼­ prev »ç¿ë
+        //child ë‚´ìš©ì´ parentì— ì €ì¥ë˜ì–´ parentë‚´ìš©ì´ ë‚ ì•„ê°€ê¸°ë•Œë¬¸ì—  ì €ì¥í•´ë‘ëŠ”ê²Œ ì¢‹ê² ë‹¤ ìƒê°í•´ì„œ prev ì‚¬ìš©
        
       
-        h->heap[parent] = h->heap[child]; //child<parent¿¡ ÀÌµ¿ÈÄ
-        h->heap[child] = prev; //prevÀÌ¿ëÇÏ¿© childÀúÀå
-        display(h); //Ãâ·Â
+        h->heap[parent] = h->heap[child]; //child<parentì— ì´ë™í›„
+        h->heap[child] = prev; //prevì´ìš©í•˜ì—¬ childì €ì¥
+        display(h); //ì¶œë ¥
        
        
 
@@ -110,7 +110,7 @@ element delete_heap(HeapType* h) {
 
     h->heap[parent] = temp;
     display(h);
-    printf("³ëµå°¡ ÀÌµ¿µÈ È½¼ö: %d\n", count);
+    printf("ë…¸ë“œê°€ ì´ë™ëœ íšŸìˆ˜: %d\n", count);
     return item;
 }
 
@@ -175,29 +175,29 @@ void level_order(HeapType* h) {
 
 void runUserInterface(HeapType* h, TreeNode* root,int size) {
     printf("-----------------------\n");
-    printf(" i= ³ëµå Ãß°¡             \n");
-    printf(" d= ³ëµå »èÁ¦            \n");
-    printf(" p=·¹º§º° Ãâ·Â         \n");
-    printf(" c= Á¾·á                 \n");
+    printf(" i= ë…¸ë“œ ì¶”ê°€             \n");
+    printf(" d= ë…¸ë“œ ì‚­ì œ            \n");
+    printf(" p=ë ˆë²¨ë³„ ì¶œë ¥         \n");
+    printf(" c= ì¢…ë£Œ                 \n");
     printf("-----------------------\n");
 
     element item;
     for (true;;) {
         char a;
-        printf("¸Ş´º ÀÔ·Â : ");
+        printf("ë©”ë‰´ ì…ë ¥ : ");
         scanf_s(" %c", &a); 
 
         switch (a) {
         case 'i':
-            printf("Ãß°¡ ÇÒ °ª ÀÔ·Â : ");
+            printf("ì¶”ê°€ í•  ê°’ ì…ë ¥ : ");
             scanf_s("%d", &item.key);
-            printf("³ëµå ÀÌµ¿ µÈ È½¼ö : %d\n", insert_heap(h,item,true));
+            printf("ë…¸ë“œ ì´ë™ ëœ íšŸìˆ˜ : %d\n", insert_heap(h,item,true));
             continue;
         case 'd':
             delete_heap(h);
             continue;
         case 'p':
-            printf("Æ®¸® ·¹º§º° Ãâ·Â:\n");
+            printf("íŠ¸ë¦¬ ë ˆë²¨ë³„ ì¶œë ¥:\n");
             level_order(h);
             continue;
         case 'c':
@@ -205,7 +205,7 @@ void runUserInterface(HeapType* h, TreeNode* root,int size) {
             break;
         
         defalut:
-            printf("¿À·ùÀÔ´Ï´Ù, ¹Ù¸£°Ô ÀÔ·ÂÇÏ¼¼¿ä");
+            printf("ì˜¤ë¥˜ì…ë‹ˆë‹¤, ë°”ë¥´ê²Œ ì…ë ¥í•˜ì„¸ìš”");
             continue;
         }
     }
