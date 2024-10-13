@@ -53,15 +53,16 @@ int insert_heap(HeapType* h, element item, int display_true) {
     int i = ++(h->heap_size);
 
     h->heap[i] = item;
- 
+   if (display_true) {
+        display(h);
+    }//generateheap트리 생성시에도 출력이 됨을 방지하기 위하여 매개변수 추가하여 true일시 출력할수있는것으로 만들었음
     while (i != 1 && item.key > h->heap[i / 2].key) {
 
         h->heap[i] = h->heap[i / 2];
         if (display_true && i != 1 && item.key > h->heap[i / 2].key) {
             h->heap[i / 2] = item;
-            display(h);  
-            //generateheap트리 생성시에도 출력이 됨을 방지하기 위하여 매개변수 추가하여 true일시 출력할수있는것으로 만들었음
-            //또한 heap[i/2]값이 [i]에 저장되면, [i]의 본 값이 날라가 중복으로 출력되기때문에 item변수에 미리 저장해두어
+            display(h); 
+            //heap[i/2]값이 [i]에 저장되면, [i]의 본 값이 날라가 중복으로 출력되기때문에 item변수에 미리 저장해두어
             //출력하는 것으로 조건문 추가했음.
         }
 
@@ -69,9 +70,7 @@ int insert_heap(HeapType* h, element item, int display_true) {
         i /= 2;
     }
     h->heap[i] = item;
-    if (display_true) {
-        display(h);
-    }
+  
     i++;
     return count;  
 }
