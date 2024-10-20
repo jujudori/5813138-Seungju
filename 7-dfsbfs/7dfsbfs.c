@@ -100,17 +100,17 @@ void insert_vertex(GraphType* g) {
 }
 
 void insert_edge(GraphType* g, int start, int end) {
-    if (start >= g->n || end >= g->n) {
+    if (start > g->n || end > g->n) {
         fprintf(stderr, "vertex error\n");
         return;
     }
 
-    // start -> end ¹æÇâ Ãß°¡
+    // start -> end ë°©í–¥ ì¶”ê°€
     GraphNode* new_node = (GraphNode*)malloc(sizeof(GraphNode));
     new_node->vertex = end;
     new_node->next = NULL;
 
-    // ¿À¸§Â÷¼øÀ¸·Î »ğÀÔ
+    // ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì‚½ì…
     if (g->adj_list[start] == NULL || g->adj_list[start]->vertex > end) {
         new_node->next = g->adj_list[start];
         g->adj_list[start] = new_node;
@@ -124,7 +124,7 @@ void insert_edge(GraphType* g, int start, int end) {
         current->next = new_node;
     }
 
-    // end -> start ¹æÇâ Ãß°¡
+    // end -> start ë°©í–¥ ì¶”ê°€
     new_node = (GraphNode*)malloc(sizeof(GraphNode));
     new_node->vertex = start;
     new_node->next = NULL;
@@ -182,8 +182,8 @@ void dfs_list(GraphType* g, int start, int goal) {
 
                 if (w == goal) {
                     printf("\n");
-                    printf("Å½»ö ¼º°ø: %d\n", w);
-                    printf("¹æ¹®ÇÑ ³ëµåÀÇ ¼ö: %d\n", visited_count);
+                    printf("íƒìƒ‰ ì„±ê³µ: %d\n", w);
+                    printf("ë°©ë¬¸í•œ ë…¸ë“œì˜ ìˆ˜: %d\n", visited_count);
                     return;
                 }
                 push(&s, v);
@@ -199,7 +199,7 @@ void dfs_list(GraphType* g, int start, int goal) {
         }
     }
 
-    printf("¸ñÇ¥ ³ëµå¸¦ Ã£Áö ¸øÇß½À´Ï´Ù. ¹æ¹®ÇÑ ³ëµå ¼ö: %d\n", visited_count);
+    printf("ëª©í‘œ ë…¸ë“œë¥¼ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤. ë°©ë¬¸í•œ ë…¸ë“œ ìˆ˜: %d\n", visited_count);
 }
 
 
@@ -208,7 +208,7 @@ void bfs_list(GraphType* g, int start, int goal) {
     init_queue(&q);
     int visited_count = 0;
 
-    // ¹æ¹® ¹è¿­ ÃÊ±âÈ­
+    // ë°©ë¬¸ ë°°ì—´ ì´ˆê¸°í™”
     for (int i = 0; i < MAX_VERTICES; i++) {
         visited[i] = FALSE;
     }
@@ -230,8 +230,8 @@ void bfs_list(GraphType* g, int start, int goal) {
                 visited_count++;
 
                 if (w == goal) {
-                    printf("\nÅ½»ö ¼º°ø: %d\n", w);
-                    printf("¹æ¹®ÇÑ ³ëµåÀÇ ¼ö: %d\n", visited_count);
+                    printf("\níƒìƒ‰ ì„±ê³µ: %d\n", w);
+                    printf("ë°©ë¬¸í•œ ë…¸ë“œì˜ ìˆ˜: %d\n", visited_count);
                     return;
                 }
                 enqueue(&q, w);
@@ -239,10 +239,10 @@ void bfs_list(GraphType* g, int start, int goal) {
             node = node->next;
         }
 
-        printf("%d ", v);  // BFS¿¡¼­ ¹éÆ®·¡Å· ½Ã ÇöÀç ³ëµå Ãâ·Â
+        printf("%d ", v);  // BFSì—ì„œ ë°±íŠ¸ë˜í‚¹ ì‹œ í˜„ì¬ ë…¸ë“œ ì¶œë ¥
     }
 
-    printf("\n¸ñÇ¥ ³ëµå¸¦ Ã£Áö ¸øÇß½À´Ï´Ù. ¹æ¹®ÇÑ ³ëµå ¼ö: %d\n", visited_count);
+    printf("\nëª©í‘œ ë…¸ë“œë¥¼ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤. ë°©ë¬¸í•œ ë…¸ë“œ ìˆ˜: %d\n", visited_count);
 }
 
 
@@ -252,12 +252,12 @@ void runUserInterface(GraphType* g) {
 
     while (TRUE) {
         printf("-----------------------\n");
-        printf(" 1=±íÀÌ ¿ì¼± Å½»ö            \n");
-        printf(" 2=³Êºñ ¿ì¼± Å½»ö            \n");
-        printf(" 3= Á¾·á                 \n");
+        printf(" 1=ê¹Šì´ ìš°ì„  íƒìƒ‰            \n");
+        printf(" 2=ë„ˆë¹„ ìš°ì„  íƒìƒ‰            \n");
+        printf(" 3= ì¢…ë£Œ                 \n");
         printf("-----------------------\n");
 
-        printf("¿É¼ÇÀ» ¼±ÅÃÇÏ¼¼¿ä: ");
+        printf("ì˜µì…˜ì„ ì„ íƒí•˜ì„¸ìš”: ");
         scanf("%d", &option);
 
         for (int i = 0; i < MAX_VERTICES; i++) {
@@ -266,22 +266,22 @@ void runUserInterface(GraphType* g) {
 
         switch (option) {
         case 1:
-            printf("¸Ş´ºÀÔ·Â : 1\n");
-            printf("½ÃÀÛ¹øÈ£¿Í Å½»öÇÒ °ª ÀÔ·Â (0ºÎÅÍ %d±îÁö): ", g->n - 1);
+            printf("ë©”ë‰´ì…ë ¥ : 1\n");
+            printf("ì‹œì‘ë²ˆí˜¸ì™€ íƒìƒ‰í•  ê°’ ì…ë ¥ (0ë¶€í„° %dê¹Œì§€): ", g->n - 1);
             scanf("%d %d", &start_node, &goal_node);
             dfs_list(g, start_node, goal_node);
             break;
         case 2:
-            printf("¸Ş´ºÀÔ·Â : 2\n");
-            printf("½ÃÀÛ¹øÈ£¿Í Å½»öÇÒ °ª ÀÔ·Â (0ºÎÅÍ %d±îÁö): ", g->n - 1);
+            printf("ë©”ë‰´ì…ë ¥ : 2\n");
+            printf("ì‹œì‘ë²ˆí˜¸ì™€ íƒìƒ‰í•  ê°’ ì…ë ¥ (0ë¶€í„° %dê¹Œì§€): ", g->n - 1);
             scanf("%d %d", &start_node, &goal_node);
             bfs_list(g, start_node, goal_node);
             break;
         case 3:
-            printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+            printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
             return;
         default:
-            printf("Àß¸øµÈ ¿É¼ÇÀÔ´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.\n");
+            printf("ì˜ëª»ëœ ì˜µì…˜ì…ë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.\n");
             return;
         }
     }
