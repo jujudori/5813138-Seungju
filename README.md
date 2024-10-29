@@ -1,5 +1,5 @@
 # 5813138-Seungju
-# 파일 목록
+
 1. [1-arraylinktree.c](./1-arraylinktree.c)
 2. [2-treetraversal.c](./2-treetraversal.c)
 3. [3-checktreedata.c](./3-checktreedata.c)
