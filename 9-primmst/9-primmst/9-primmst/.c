@@ -52,7 +52,7 @@ void FindPrimMST(GraphType* g) {
         }
         if (u == -1) break;
         selected[u] = TRUE;
-        printf("Á¤Á¡ %d Ãß°¡\n", u);
+        printf("ÃÂ¤ÃÂ¡ %d ÃƒÃŸÂ°Â¡\n", u);
         for (int v = 1; v < g->n; v++) {
             if (!selected[v] && g->weight[u][v] < key[v]) {
                 key[v] = g->weight[u][v];
