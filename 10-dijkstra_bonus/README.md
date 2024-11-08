@@ -1,7 +1,8 @@
 1.행렬기반 다익스트라 코드결과
 
 
-![행렬기반 다익스트라](https://github.com/user-attachments/assets/9c21933e-c47b-49c3-9eeb-107e85cc4908)
+<img width="347" alt="image" src="https://github.com/user-attachments/assets/e7c89c1e-b52f-4370-87ad-3de15b5535bf">
+
 
 
 2. minheap 기반 연결리스트 다익스트라 코드 결과
