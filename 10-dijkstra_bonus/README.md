@@ -1,7 +1,7 @@
 1.행렬기반 다익스트라 코드결과
 
 
-<img width="347" alt="image" src="https://github.com/user-attachments/assets/e7c89c1e-b52f-4370-87ad-3de15b5535bf">
+<img width="285" alt="image" src="https://github.com/user-attachments/assets/42c43415-39f5-465b-926e-0c15037483a1">
 
 
 
