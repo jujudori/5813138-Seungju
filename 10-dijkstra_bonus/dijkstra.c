@@ -40,7 +40,7 @@ typedef struct GraphType {
     int weight[MAX_VERTICES][MAX_VERTICES];
 } GraphType;
 
-int found_sequence[MAX_VERTICES];  // ¹æ¹® ¼ø¼­ ±â·Ï¿ë ¹è¿­
+int found_sequence[MAX_VERTICES];  // ë°©ë¬¸ ìˆœì„œ ê¸°ë¡ìš© ë°°ì—´
 int sequence_idx = 0;
 
 void found_order() {
@@ -335,7 +335,7 @@ int main(void) {
 { INF,  INF,  INF, INF, 18,  INF,  INF, INF,0, 10, },
 { INF,  INF,  INF, 16, 17,  INF,  INF, 15,10, 0}}
     };
-    printf("Çà·Ä ±â¹İ ´ÙÀÍ½ºÆ®¶ó \n");
+    printf("í–‰ë ¬ ê¸°ë°˜ ë‹¤ìµìŠ¤íŠ¸ë¼ \n");
     shortest_path_martix(&g, 0);
 
 
@@ -365,7 +365,7 @@ int main(void) {
     insert_edge_list_graph(graph, 7, 8, 15);
     insert_edge_list_graph(graph, 8, 9, 10);
 
-    printf("\nMin-heap±â¹İ ¿¬°á¸®½ºÆ® ´ÙÀÍ½ºÆ®¶ó\n");
+    printf("\nMin-heapê¸°ë°˜ ì—°ê²°ë¦¬ìŠ¤íŠ¸ ë‹¤ìµìŠ¤íŠ¸ë¼\n");
     dijkstra_sp(graph, 0);
 
     return 0;
