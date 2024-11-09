@@ -7,7 +7,7 @@
 
 
 
-2. minheap 기반 연결리스트 다익스트라 코드 결과 
+2. minheap 기반 연결리스트 다익스트라 코드 결과 (간선추가 실수 수정완료 하고 난 후 결과입니다!!!)
 
 <img width="265" alt="image" src="https://github.com/user-attachments/assets/5c9341ec-1b55-4f2a-a742-6873d3f6edcd">
 
