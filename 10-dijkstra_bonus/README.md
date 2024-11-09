@@ -1,3 +1,5 @@
+황보승주 - 간선추가 실수(수정)
+
 1.행렬기반 다익스트라 코드결과
 
 
@@ -5,10 +7,9 @@
 
 
 
-2. minheap 기반 연결리스트 다익스트라 코드 결과
+2. minheap 기반 연결리스트 다익스트라 코드 결과 
 
-
-![minheap기반 다익스트라](https://github.com/user-attachments/assets/9a6027ac-85b4-4fc6-8d55-75e2f57d96c5)
+<img width="265" alt="image" src="https://github.com/user-attachments/assets/5c9341ec-1b55-4f2a-a742-6873d3f6edcd">
 
 
 3. minheap기반 연결리스트 다익스트라 함수 코드
