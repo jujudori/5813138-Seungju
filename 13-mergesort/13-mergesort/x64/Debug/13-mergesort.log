@@ -1,4 +1,0 @@
-﻿  mergesort.c
-C:\Users\LGPC\source\repos\13-mergesort\13-mergesort\mergesort.c(11,1): warning C4005: 'min': 매크로 재정의
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\stdlib.h(1283,1): message : 'min'의 이전 정의를 참조하십시오.
-  13-mergesort.vcxproj -> C:\Users\LGPC\source\repos\13-mergesort\x64\Debug\13-mergesort.exe
