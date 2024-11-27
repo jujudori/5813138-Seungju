@@ -3,16 +3,16 @@
 #include <time.h>
 #define MAX_SIZE 100
 
-int compare = 0, moves = 0; // ºñ±³ ¹× ÀÌµ¿ È½¼ö Ä«¿îÆ®
-int totalComparisons = 0, totalMoves = 0; // ÃÑ ºñ±³ ¹× ÀÌµ¿ È½¼ö
-int isFirst = 0;    // Ã¹ ¹øÂ° ½ÇÇàÀ» À§ÇÑ º¯¼ö
-int rounds = 0;      // ºĞÇÒ ¹× º´ÇÕ °úÁ¤¿¡¼­ È½¼ö ¼¼±â
+int compare = 0, moves = 0; // ë¹„êµ ë° ì´ë™ íšŸìˆ˜ ì¹´ìš´íŠ¸
+int totalComparisons = 0, totalMoves = 0; // ì´ ë¹„êµ ë° ì´ë™ íšŸìˆ˜
+int isFirst = 0;    // ì²« ë²ˆì§¸ ì‹¤í–‰ì„ ìœ„í•œ ë³€ìˆ˜
+int rounds = 0;      // ë¶„í•  ë° ë³‘í•© ê³¼ì •ì—ì„œ íšŸìˆ˜ ì„¸ê¸°
 
 #define min(a, b) ((a) < (b) ? (a) : (b))
 
 void generateRandomNumbers(int list[]) {
     for (int i = 0; i < MAX_SIZE; i++) {
-        list[i] = rand() % 1000; // 0ºÎÅÍ 999±îÁö ³­¼ö »ı¼º
+        list[i] = rand() % 1000; // 0ë¶€í„° 999ê¹Œì§€ ë‚œìˆ˜ ìƒì„±
     }
 }
 
@@ -23,34 +23,34 @@ void printArray(int array[]) {
     printf("\n");
 }
 
-// º´ÇÕ ÇÔ¼ö
+// ë³‘í•© í•¨ìˆ˜
 void merge(int array[], int l, int m, int r) {
     int i, j, k;
-    int n1 = m - l + 1; // ¿ŞÂÊ ºÎºĞ ¹è¿­ Å©±â
-    int n2 = r - m;     // ¿À¸¥ÂÊ ºÎºĞ ¹è¿­ Å©±â
-    int roundsInMerge = 0;  // º´ÇÕ ³»¿¡¼­¸¸ »ç¿ëÇÒ rounds º¯¼ö
+    int n1 = m - l + 1; // ì™¼ìª½ ë¶€ë¶„ ë°°ì—´ í¬ê¸°
+    int n2 = r - m;     // ì˜¤ë¥¸ìª½ ë¶€ë¶„ ë°°ì—´ í¬ê¸°
+    int roundsInMerge = 0;  // ë³‘í•© ë‚´ì—ì„œë§Œ ì‚¬ìš©í•  rounds ë³€ìˆ˜
 
-    // ÀÓ½Ã ¹è¿­ »ı¼º
+    // ì„ì‹œ ë°°ì—´ ìƒì„±
     int* L = (int*)malloc(n1 * sizeof(int));
     int* R = (int*)malloc(n2 * sizeof(int));
 
-    // ¿ŞÂÊ°ú ¿À¸¥ÂÊ ¹è¿­ º¹»ç
+    // ì™¼ìª½ê³¼ ì˜¤ë¥¸ìª½ ë°°ì—´ ë³µì‚¬
     for (i = 0; i < n1; i++) {
         L[i] = array[l + i];
-        moves++;  // ÀÌµ¿ È½¼ö Áõ°¡
+        moves++;  // ì´ë™ íšŸìˆ˜ ì¦ê°€
     }
     for (j = 0; j < n2; j++) {
         R[j] = array[m + 1 + j];
-        moves++;  // ÀÌµ¿ È½¼ö Áõ°¡
+        moves++;  // ì´ë™ íšŸìˆ˜ ì¦ê°€
     }
 
-    // º´ÇÕ °úÁ¤
+    // ë³‘í•© ê³¼ì •
     i = 0;
     j = 0;
     k = l;
     while (i < n1 && j < n2) {
-        compare++;  // ºñ±³ È½¼ö Áõ°¡
-        rounds++;  // º´ÇÕ °úÁ¤¿¡¼­ ºñ±³ È½¼ö Áõ°¡
+        compare++;  // ë¹„êµ íšŸìˆ˜ ì¦ê°€
+        rounds++;  // ë³‘í•© ê³¼ì •ì—ì„œ ë¹„êµ íšŸìˆ˜ ì¦ê°€
         if (L[i] <= R[j]) {
             array[k] = L[i];
             i++;
@@ -60,63 +60,66 @@ void merge(int array[], int l, int m, int r) {
             j++;
         }
         k++;
-        moves++;  // ÀÌµ¿ È½¼ö Áõ°¡
+        moves++;  // ì´ë™ íšŸìˆ˜ ì¦ê°€
     }
 
-    // ³²Àº ¿ŞÂÊ ¹è¿­ º¹»ç
+    // ë‚¨ì€ ì™¼ìª½ ë°°ì—´ ë³µì‚¬
     while (i < n1) {
         array[k] = L[i];
         i++;
         k++;
-        moves++;  // ÀÌµ¿ È½¼ö Áõ°¡
-        rounds++;  // º´ÇÕ °úÁ¤¿¡¼­ Ãß°¡µÈ °ªµµ rounds++
+        moves++;  // ì´ë™ íšŸìˆ˜ ì¦ê°€
+        rounds++;  // ë³‘í•© ê³¼ì •ì—ì„œ ì¶”ê°€ëœ ê°’ë„ rounds++
     }
 
-    // ³²Àº ¿À¸¥ÂÊ ¹è¿­ º¹»ç
+    // ë‚¨ì€ ì˜¤ë¥¸ìª½ ë°°ì—´ ë³µì‚¬
     while (j < n2) {
         array[k] = R[j];
         j++;
         k++;
-        moves++;  // ÀÌµ¿ È½¼ö Áõ°¡
+        moves++;  // ì´ë™ íšŸìˆ˜ ì¦ê°€
         rounds++;
     }
 
-    // 10¹ø¿¡ ÇÑ¹ø¸¸ ¹è¿­ »óÅÂ Ãâ·Â
+    // 10ë²ˆì— í•œë²ˆë§Œ ë°°ì—´ ìƒíƒœ ì¶œë ¥
     if (rounds % 10 == 0 && isFirst == 0) {
-        for (int i = 0; i < 10; i++) // 0 ~ 9¹øÂ° °ª Ãâ·Â
+        for (int i = 0; i < 10; i++) // 0 ~ 9ë²ˆì§¸ ê°’ ì¶œë ¥
             printf("%3d ", array[i]);
         printf("| ");
-        for (int i = MAX_SIZE / 2 - 1; i < MAX_SIZE / 2 + 10; i++) // Áß¾Ó-1 ~ Áß¾Ó+10
+        for (int i = MAX_SIZE / 2 - 1; i < MAX_SIZE / 2 + 10; i++) // ì¤‘ì•™-1 ~ ì¤‘ì•™+10
             printf("%3d ", array[i]);
         printf("\n\n");
     }
 
-    // µ¿Àû ¸Ş¸ğ¸® ÇØÁ¦
+    // ë™ì  ë©”ëª¨ë¦¬ í•´ì œ
     free(L);
     free(R);
 
 
 }
 
-// º´ÇÕ Á¤·Ä ÇÔ¼ö
-void mergeSort(int arr[], int n)
-{
-    int curr_size;
-    int left_start;
- 
-    for (curr_size = 1; curr_size <= n - 1; curr_size = 2 * curr_size)
-    {
-        for (left_start = 0; left_start < n - 1; left_start += 2 * curr_size)
-        {
-           
+// ë³‘í•© ì •ë ¬ í•¨ìˆ˜
+void mergeSort(int arr[], int n) {
+    int curr_size;       // í˜„ì¬ ë³‘í•©í•˜ëŠ” ë¶€ë¶„ ë°°ì—´ì˜ í¬ê¸°
+    int left_start;      // í˜„ì¬ ë³‘í•©í•˜ëŠ” ë¶€ë¶„ ë°°ì—´ì˜ ì‹œì‘ ì¸ë±ìŠ¤
+
+    // ë¶€ë¶„ ë°°ì—´ì˜ í¬ê¸°ë¥¼ 1, 2, 4, ... ìˆœìœ¼ë¡œ ë‘ ë°°ì”© ì¦ê°€ì‹œì¼œ ë³‘í•©
+    for (curr_size = 1; curr_size <= n - 1; curr_size = 2 * curr_size) {
+        // ë¶€ë¶„ ë°°ì—´ì„ ì™¼ìª½ì—ì„œ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë³‘í•©
+        for (left_start = 0; left_start < n - 1; left_start += 2 * curr_size) {
+            // í˜„ì¬ ë¶€ë¶„ ë°°ì—´ì˜ ì¤‘ê°„ ì¸ë±ìŠ¤ ê³„ì‚°
+            // ì™¼ìª½ ë°°ì—´ì˜ ë ì§€ì 
             int mid = min(left_start + curr_size - 1, n - 1);
 
+            // ì˜¤ë¥¸ìª½ ë°°ì—´ì˜ ë ì§€ì 
             int right_end = min(left_start + 2 * curr_size - 1, n - 1);
 
+            // ë³‘í•© í•¨ìˆ˜ í˜¸ì¶œ: ì™¼ìª½ ì‹œì‘, ì¤‘ê°„, ì˜¤ë¥¸ìª½ ë ì¸ë±ìŠ¤ë¥¼ ì „ë‹¬
             merge(arr, left_start, mid, right_end);
         }
     }
 }
+
 
 int main() {
     int array[MAX_SIZE];
@@ -129,14 +132,14 @@ int main() {
 
         if (i == 0) {
             printf("Merge Sort Run\n");
-            mergeSort(array, MAX_SIZE - 1);  // º´ÇÕ Á¤·Ä È£Ãâ
+            mergeSort(array, MAX_SIZE - 1);  // ë³‘í•© ì •ë ¬ í˜¸ì¶œ
 
             printf("Result:\n");
             printArray(array);
             isFirst++;
         }
         else {
-            mergeSort(array, MAX_SIZE - 1);  // º´ÇÕ Á¤·Ä È£Ãâ
+            mergeSort(array, MAX_SIZE - 1);  // ë³‘í•© ì •ë ¬ í˜¸ì¶œ
         }
 
         totalComparisons += compare;
