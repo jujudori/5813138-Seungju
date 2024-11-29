@@ -14,7 +14,10 @@
 7. [7-dfsbfs](https://github.com/jujudori/5813138-Seungju/blob/main/7-dfsbfs)
 8. [8-findmst](https://github.com/jujudori/5813138-Seungju/blob/main/8-findmst)
 9. [9-primmst.c](https://github.com/jujudori/5813138-Seungju/blob/main/9-primmst.c)
-    ----------------------중간고사 -----------------------------
+
+
+    ## ----------------------중간고사 -----------------------------
+    
 10. [10-dijkstra_bonus](https://github.com/jujudori/5813138-Seungju/blob/main/10-dijkstra_bonus)
 11. [11-sort](https://github.com/jujudori/5813138-Seungju/blob/main/11-sort)
 12. [12-shellsort](https://github.com/jujudori/5813138-Seungju/blob/main/12-shellsort)
