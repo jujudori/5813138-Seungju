@@ -16,7 +16,7 @@
 9. [9-primmst.c](https://github.com/jujudori/5813138-Seungju/blob/main/9-primmst.c)
 
 
-    ## ----------------------중간고사 -----------------------------
+    ## ---중간고사 ---
     
 10. [10-dijkstra_bonus](https://github.com/jujudori/5813138-Seungju/blob/main/10-dijkstra_bonus)
 11. [11-sort](https://github.com/jujudori/5813138-Seungju/blob/main/11-sort)
