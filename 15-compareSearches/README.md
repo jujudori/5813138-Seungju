@@ -1,6 +1,4 @@
-출력결과
-
-
+comparesearch result
 
 <img width="817" alt="image" src="https://github.com/user-attachments/assets/c6a41f14-ff9a-474f-824f-0c2573d2e004">
 <img width="793" alt="image" src="https://github.com/user-attachments/assets/5cd00fe6-c6d7-4d3f-9a5f-9f73e597380e">
