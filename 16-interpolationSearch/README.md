@@ -1,7 +1,8 @@
+<img width="854" alt="image" src="https://github.com/user-attachments/assets/6849a0e0-42bb-4b92-ac74-9ce607c33324">
+<img width="742" alt="image" src="https://github.com/user-attachments/assets/58e57623-112f-46b0-8c97-81ac95ae1074">
+<img width="826" alt="image" src="https://github.com/user-attachments/assets/370eb35b-46ec-4692-af8f-7c32554182dc">
 
-<img width="767" alt="image" src="https://github.com/user-attachments/assets/eade054a-e923-4766-872d-1722a8b85b42">
-<img width="733" alt="image" src="https://github.com/user-attachments/assets/a5880fa2-04ac-4f3c-87fa-29acaab1d5e7">
-<img width="779" alt="image" src="https://github.com/user-attachments/assets/4a054149-d1b4-4b6f-9a43-76c228084b9a">
 
-A, B, C에 대해서 퀵 정렬후의 이진탐색에서 순차탐색보다 적게 비교하는 이유를 설명
--> READMD에 자세하게 작성
+
+A, B, C에 대해서 퀵 정렬후의 이진탐색에서 순차탐색보다 적게 비교하는 이유를 설명 
+<< 15번이랑 똑같아서 복붙
