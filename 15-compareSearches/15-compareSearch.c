@@ -8,7 +8,7 @@
 int  CompareCount;
 int  totalCompare;
 
-void generateRandomArray(int array[]) { //·£´ı µ¥ÀÌÅÍ »ı¼º ÇÔ¼ö
+void generateRandomArray(int array[]) { //ëœë¤ ë°ì´í„° ìƒì„± í•¨ìˆ˜
     for (int i = 0; i < SIZE; i++) {
         array[i] = rand() % 1000;
     }
@@ -32,13 +32,13 @@ double getAverageLinearSearchCompareCount(int array[])
     int key;
     for (int i = 0; i < 100; i++) {
          key = array[rand() % SIZE];
-        // Å¸°Ù°ªÀ» Àâ´Â´Ù.
+        // íƒ€ê²Ÿê°’ì„ ì¡ëŠ”ë‹¤.
 
         CompareCount = 0;
 
         for (int j = 0; j < SIZE; j++) {
             CompareCount++;
-            if (array[j] == key) break; 
+            if (array[j] == key) break; //ìˆœì°¨ì ìœ¼ë¡œ íƒìƒ‰í•´ì„œ ë°œê²¬í•˜ë©´ ë£¨í”„ ë¹ ì ¸ë‚˜ì˜´
 
         }
 
@@ -59,21 +59,21 @@ int partition(int list[], int left, int right) {
 
         while (low<=right) {
             CompareCount++;
-            if (list[low] > pivot) break; // ÇÇ¹şº¸´Ù Å« °ª ¹ß°ß ½Ã Á¤Áö
+            if (list[low] > pivot) break; // í”¼ë²—ë³´ë‹¤ í° ê°’ ë°œê²¬ ì‹œ ì •ì§€
 
             low++;
         }
 
-        // high¸¦ ÀÌµ¿
+        // highë¥¼ ì´ë™
         while (high>=left) {
 
             CompareCount++;
-            if (list[high] <= pivot) break; // ÇÇ¹şº¸´Ù ÀÛ°Å³ª °°Àº °ª ¹ß°ß ½Ã Á¤Áö
+            if (list[high] <= pivot) break; // í”¼ë²—ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ì€ ê°’ ë°œê²¬ ì‹œ ì •ì§€
 
             high--;
         }
 
-        CompareCount++; // low¿Í high ±³Â÷ÇÏÁö ¾ÊÀº °æ¿ì SWAP ¼öÇà
+        CompareCount++; // lowì™€ high êµì°¨í•˜ì§€ ì•Šì€ ê²½ìš° SWAP ìˆ˜í–‰
         if (low < high)   SWAP(list[low], list[high], temp);
     }
  
@@ -85,54 +85,50 @@ int partition(int list[], int left, int right) {
 
 
 
-// Äü Á¤·Ä ÇÔ¼ö¿¡¼­ ºñ±³ È½¼ö ÃßÀû
+// í€µ ì •ë ¬ í•¨ìˆ˜ì—ì„œ ë¹„êµ íšŸìˆ˜ ì¶”ì 
 void quick_sort(int list[], int left, int right) {
     if (left < right) {
         int q = partition(list, left, right);
-        quick_sort(list, left, q - 1);  // ¿ŞÂÊ ºÎºĞ Á¤·Ä
-        quick_sort(list, q + 1, right); // ¿À¸¥ÂÊ ºÎºĞ Á¤·Ä
+        quick_sort(list, left, q - 1);  // ì™¼ìª½ ë¶€ë¶„ ì •ë ¬
+        quick_sort(list, q + 1, right); // ì˜¤ë¥¸ìª½ ë¶€ë¶„ ì •ë ¬
     }
 }
 
 
 int getQuickSortCompareCount(int array[]) {
-    CompareCount =0;  // ºñ±³ È½¼ö ÃÊ±âÈ­
+    CompareCount =0;  // ë¹„êµ íšŸìˆ˜ ì´ˆê¸°í™”
     quick_sort(array, 0, SIZE - 1);
     return CompareCount;  
 }
 
-double getAverageBinarySearchCompareCount(int array[])
-{
+double getAverageBinarySearchCompareCount(int array[]) {
     int key;
-     totalCompare = 0;
-    for (int i = 0; i < 100; i++) {
-        key = array[rand() % 1000];
+    totalCompare = 0;  // ì´ ë¹„êµ íšŸìˆ˜ ì´ˆê¸°í™”
 
+    for (int i = 0; i < 100; i++) {  // 100ë²ˆì˜ ì´ì§„ íƒìƒ‰ ìˆ˜í–‰
+        key = array[rand() % 1000];  // ë°°ì—´ì—ì„œ ëœë¤í•œ í‚¤ ì„ íƒ
         int middle;
         int low = 0;
         int high = SIZE - 1;
-        CompareCount = 0;
+        CompareCount = 0;  // í˜„ì¬ íƒìƒ‰ì˜ ë¹„êµ íšŸìˆ˜ ì´ˆê¸°í™”
 
-        while (low <= high) {
-            middle = (low + high) / 2;
-            CompareCount++;
-            if (array[middle] == key) {
+        while (low <= high) {  // ì´ì§„ íƒìƒ‰ ìˆ˜í–‰
+            middle = (low + high) / 2;  // ì¤‘ê°„ ì¸ë±ìŠ¤ ê³„ì‚°
+            CompareCount++;  // ë¹„êµ íšŸìˆ˜ ì¦ê°€
+
+            if (array[middle] == key) {  // í‚¤ë¥¼ ì°¾ìœ¼ë©´ ì¢…ë£Œ
                 break;
+            } else if (key > array[middle]) {
+                low = middle + 1;  // ì˜¤ë¥¸ìª½ íƒìƒ‰
+            } else {
+                high = middle - 1; // ì™¼ìª½ íƒìƒ‰
             }
-            else if (key > array[middle])
-            {
-                low = middle + 1;
-    
-            }
-            else {
-                high = middle - 1;
-             
-            }
-            }
+        }
 
-        totalCompare += CompareCount;
+        totalCompare += CompareCount;  // í˜„ì¬ íƒìƒ‰ì˜ ë¹„êµ íšŸìˆ˜ë¥¼ ì´í•©ì— ì¶”ê°€
     }
-    return (double)totalCompare / 100;
+
+    return (double)totalCompare / 100;  // í‰ê·  ë¹„êµ íšŸìˆ˜ ë°˜í™˜
 }
 
 
@@ -142,17 +138,17 @@ int main(int argc, char* argv[]) {
     int array[SIZE];
     generateRandomArray(array);
 
-    //Æò±Õ°ªÀ» ¹İÈ¯¹Ş±â À§ÇÑ Á¶Ä¡
+    //í‰ê· ê°’ì„ ë°˜í™˜ë°›ê¸° ìœ„í•œ ì¡°ì¹˜
     printf("Average Linear Search Compare Count: %.2f\n",
     getAverageLinearSearchCompareCount(array));
 
-    //compareCount°¡ global variableÀÌ¹Ç·Î, ´ÙÀ½°ú °°ÀÌ ±¸Çö
+    //compareCountê°€ global variableì´ë¯€ë¡œ, ë‹¤ìŒê³¼ ê°™ì´ êµ¬í˜„
     CompareCount = 0;
-    //array¿¡ ´ëÇØ¼­ Á÷Á¢ Á¤·ÄÇÏ¸é µÈ´Ù.
+    //arrayì— ëŒ€í•´ì„œ ì§ì ‘ ì •ë ¬í•˜ë©´ ëœë‹¤.
     getQuickSortCompareCount(array);
     printf("Quick Sort Compare Count: %d\n", CompareCount);
 
-    //Á¤·ÄµÈ Array¿¡ ´ëÇØ¼­ Binary Search 100È¸ ¼öÇà ¹× Æò±Õ ºñ±³È½¼ö Ãâ·Â
+    //ì •ë ¬ëœ Arrayì— ëŒ€í•´ì„œ Binary Search 100íšŒ ìˆ˜í–‰ ë° í‰ê·  ë¹„êµíšŸìˆ˜ ì¶œë ¥
     printf("Average Binary Search Compare Count: %.2f\n",
     getAverageBinarySearchCompareCount(array));
 
