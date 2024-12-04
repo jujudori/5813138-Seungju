@@ -1,10 +1,8 @@
 interpolation result 
 
-
-<img width="854" alt="image" src="https://github.com/user-attachments/assets/6849a0e0-42bb-4b92-ac74-9ce607c33324">
-<img width="742" alt="image" src="https://github.com/user-attachments/assets/58e57623-112f-46b0-8c97-81ac95ae1074">
-<img width="826" alt="image" src="https://github.com/user-attachments/assets/370eb35b-46ec-4692-af8f-7c32554182dc">
-
+<img width="776" alt="image" src="https://github.com/user-attachments/assets/f3157d68-6071-46f6-9482-8acf64f22d00">
+<img width="774" alt="image" src="https://github.com/user-attachments/assets/b3703d94-8888-42e4-a560-390467620883">
+<img width="802" alt="image" src="https://github.com/user-attachments/assets/0da82a28-9bea-4432-a571-2fe456361dfe">
 
   
 
