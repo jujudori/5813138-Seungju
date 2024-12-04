@@ -1,9 +1,8 @@
 comparesearch result
 
-<img width="817" alt="image" src="https://github.com/user-attachments/assets/c6a41f14-ff9a-474f-824f-0c2573d2e004">
-<img width="793" alt="image" src="https://github.com/user-attachments/assets/5cd00fe6-c6d7-4d3f-9a5f-9f73e597380e">
-<img width="876" alt="image" src="https://github.com/user-attachments/assets/6bb89ba6-61a5-4878-9763-7a4672b4dab7">
-
+<img width="692" alt="image" src="https://github.com/user-attachments/assets/395536b4-3cd9-4420-876b-e8440840e974">
+<img width="696" alt="image" src="https://github.com/user-attachments/assets/a62618dd-43e6-4ab9-87e6-993fed0ac5d8">
+<img width="773" alt="image" src="https://github.com/user-attachments/assets/89f0bd5f-5b8f-4ba8-8a02-3f52350b59fa">
 
 
 결과분석
