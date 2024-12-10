@@ -18,6 +18,10 @@ BST는 비균형 상태가 되면 최악의 경우 O(n)(경사트리인 경우) 
 반면 avl트리는 삽/삭시 바로바로 balancefactor로 불균형을 감지하고 회전을 이용하여 균형을 유지하도록 하기 때문에 탐색에서 bst보다 빠르게 탐색 하는 것을 볼 수 있다.
 
 예시 > 1,2,3,4,5 를 삽입 후 비교횟수 비교 
+
+
+![image](https://github.com/user-attachments/assets/22f845e5-4b61-4473-8c6e-bcbfb410a62f)
+
+
 5를 search할때 비교 횟수 avl = 1번 bst = 3번
 = avl이 훨씬 비교횟수가 적다(성능좋음) 
-![image](https://github.com/user-attachments/assets/22f845e5-4b61-4473-8c6e-bcbfb410a62f)
