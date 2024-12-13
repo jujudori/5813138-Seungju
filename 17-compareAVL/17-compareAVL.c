@@ -1,4 +1,4 @@
-﻿#include <stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 
@@ -294,7 +294,6 @@ Node* doAVLBatch(Node* root) {
 // BST 작업 배치 수행
 Node* doBinaryBatch(Node* root) {
     searchCount = 0;
-    A = B = 0;
 
 
     for (int i = 0; i < SIZE; i++) {
