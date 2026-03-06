@@ -1,6 +1,6 @@
 
 
-# 📘 basic algorithm-Seungju
+## 📘 data structure 2 -Seungju
 ---
 
 ## 📂 목록
