@@ -1,6 +1,6 @@
 
 
-# 📘 5813138-Seungju
+# 📘 basic algorithm-Seungju
 ---
 
 ## 📂 목록
